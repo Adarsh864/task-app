@@ -59,7 +59,7 @@ h1, h2 {
 .delete-btn:hover {
     background-color:green;
 }
-.addTaskBtn{
+#addTaskBtn{
     margin-left: 8px;
     background-color: green;
     color: white;
