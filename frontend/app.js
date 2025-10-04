@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const addTaskBtn = document.getElementById('addTaskBtn');
     const todoList = document.getElementById('todo-list');
     const doneList = document.getElementById('done-list');
-    const API_URL = '/api';
+    const API_URL = '/api'; // Netlify redirect handles this
 
     const renderTasks = async () => {
-        const response = await fetch(`${API_URL}/tasks`);
+        const response = await fetch(`${API_URL}`);
         const tasks = await response.json();
 
         todoList.innerHTML = '';
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addTask = async () => {
         const taskText = taskInput.value.trim();
         if (taskText === '') return;
-        await fetch(`${API_URL}/tasks`, {
+        await fetch(`${API_URL}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ text: taskText }),
@@ -42,11 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTasks();
     };
 
-
     const completeTask = async (taskId) => {
-        await fetch(`${API_URL}/tasks/${taskId}/complete`, {
-            method: 'PUT',
-        });
+        await fetch(`${API_URL}/${taskId}/complete`, { method: 'PUT' });
         renderTasks();
     };
 
