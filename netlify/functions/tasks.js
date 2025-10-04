@@ -1,4 +1,3 @@
-
 const express = require('express');
 const serverless = require('serverless-http');
 const cors = require('cors');
@@ -14,13 +13,14 @@ let tasks = [
 ];
 let nextId = 3;
 
-
 router.get('/', (req, res) => res.json(tasks));
+
 router.post('/', (req, res) => {
     const newTask = { id: nextId++, text: req.body.text, status: 'todo' };
     tasks.push(newTask);
     res.status(201).json(newTask);
 });
+
 router.put('/:id/complete', (req, res) => {
     const task = tasks.find(t => t.id === parseInt(req.params.id));
     if (task) {
@@ -31,6 +31,16 @@ router.put('/:id/complete', (req, res) => {
     }
 });
 
+router.delete('/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = tasks.findIndex(t => t.id === id);
+    if (index !== -1) {
+        const deletedTask = tasks.splice(index, 1);
+        res.json(deletedTask[0]);
+    } else {
+        res.status(404).send('Task not found');
+    }
+});
 
 app.use('/.netlify/functions/tasks', router);
 
