@@ -1,0 +1,45 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.add-task-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.boards-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.board {
+    background-color: #eee;
+    padding: 15px;
+    width: 45%;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+    min-height: 200px;
+}
+
+.task-item {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.done-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

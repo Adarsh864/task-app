@@ -1,0 +1,10 @@
+
+[build]
+  command = "npm install"
+  publish = "frontend"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/tasks/:splat"
+  status = 200
