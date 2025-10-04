@@ -8,8 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 let tasks = [
-    { id: 1, text: 'Deploy project to Netlify', status: 'todo' },
-    { id: 2, text: 'Celebrate!', status: 'todo' },
+    { id: 1, text: 'Task A', status: 'todo' },
+    { id: 2, text: 'Task B', status: 'todo' },
 ];
 let nextId = 3;
 
