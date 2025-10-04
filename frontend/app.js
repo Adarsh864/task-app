@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addTaskBtn = document.getElementById('addTaskBtn');
     const todoList = document.getElementById('todo-list');
     const doneList = document.getElementById('done-list');
-    const API_URL = '/api'; // Netlify redirect handles this
+    const API_URL = '/.netlify/functions/tasks';
 
     const renderTasks = async () => {
         const response = await fetch(`${API_URL}`);
